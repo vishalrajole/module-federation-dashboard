@@ -4,7 +4,7 @@ import { useRecoilState } from "recoil";
 import { useTheme } from "emotion-theming";
 import { PieChart } from "react-minimal-pie-chart";
 
-const Graph1 = ({ state }) => {
+const Graph2 = ({ state }) => {
   const [graph, setGraph] = useRecoilState(state);
   const theme = useTheme();
   return (
@@ -16,26 +16,18 @@ const Graph1 = ({ state }) => {
         fontSize: "x-large",
       }}
     >
-      <button
-        onClick={() => setGraph([10, 20, 30])}
-        style={{
-          fontSize: "xx-large",
-        }}
-      >
-        Change the data now!!!
-      </button>
       <PieChart
         data={[
-          { title: "One", value: graph[0], color: "#E38627" },
-          { title: "Two", value: graph[1], color: "#C13C37" },
-          { title: "Three", value: graph[2], color: "#6A2135" },
+          { title: "One", value: graph[0], color: "yellow" },
+          { title: "Two", value: graph[1], color: "red" },
+          { title: "Three", value: graph[2], color: "green" },
         ]}
-        radius={PieChart.defaultProps.radius - 6}
-        lineWidth={60}
+        radius={PieChart.defaultProps.radius - 3}
+        lineWidth={30}
         animate={true}
       />{" "}
     </div>
   );
 };
 
-export default Graph1;
+export default Graph2;

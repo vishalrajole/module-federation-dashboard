@@ -2,7 +2,7 @@ const path = require("path");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 module.exports = {
-  entry: "./src/graph1",
+  entry: "./src/graph2",
   cache: false,
 
   mode: "development",
@@ -13,8 +13,8 @@ module.exports = {
   },
 
   output: {
-    publicPath: "http://localhost:3001/graph1/",
-    path: path.resolve(__dirname, "dist/graph1"),
+    publicPath: "http://localhost:3001/graph2/",
+    path: path.resolve(__dirname, "dist/graph2"),
   },
 
   resolve: {
@@ -38,12 +38,12 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "graph1",
-      library: { type: "var", name: "graph1" },
+      name: "graph2",
+      library: { type: "var", name: "graph2" },
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        graph1: "./src/graph1",
+        graph2: "./src/graph2",
       },
       shared: ["react", "recoil", "@emotion/core", "emotion-theming"],
     }),
